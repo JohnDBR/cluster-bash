@@ -6,15 +6,16 @@ echo John Barbosa - Juan Arellano - Sebastian Cabarcas
 echo ""
 echo Downloading & installing dependencies...
 echo ---------------------------------------------
-sudo apt-get --asume-yes install build-essential
-sudo apt-get --asume-yes install openssh-server
-sudo apt-get --asume-yes install nfs-kernel-server
-sudo apt-get --asume-yes install nfs-common
+apt-get install -y build-essential
+apt-get install -y openssh-server
+apt-get install -y nfs-kernel-server
+apt-get install -y nfs-common
 wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
-cd mpich-3.2.1
-./configure --disable-fortran
-make; sudo make install
-cd
+#tar -xzf mpich-3.2.1.tar.gz
+#cd mpich-3.2.1
+#./configure --disable-fortran
+#make; sudo make install
+#cd
 echo ---------------------------------------------
 echo Configuring hosts file...
 echo Please search your ip assigned on the NAT Network or ask to the network manager!
