@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 cd
 echo ---------------------------------------------
 echo Welcome to the cluster vinculation script!...
@@ -35,7 +35,6 @@ sudo -i -u mpiuser ssh-keygen -b 4096 -C "" -P "" -f "/home/mpiuser/.ssh/id_rsa"
 sudo -i -u mpiuser ssh-copy-id john-master
 sudo -i -u mpiuser ssh john-master "echo godmode01 | sudo -S -- sh -c 'echo $concat >> /etc/hosts'"
 echo ""
-sudo -i -u mpiuser ssh john-master "echo 'yes \n' | ssh-copy-id $host_name"
 mkdir /home/mpiuser/cloud
 sudo mount -t nfs john-master:/home/mpiuser/cloud /home/mpiuser/cloud
 echo john-master:/home/mpiuser/cloud /home/mpiuser/cloud nfs | tee --append /etc/fstab
