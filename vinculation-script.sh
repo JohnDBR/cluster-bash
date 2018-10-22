@@ -1,13 +1,16 @@
 #!/bin/bash
-#cd
+cd
 echo ---------------------------------------------
 echo Welcome to the cluster vinculation script!...
 echo John Barbosa - Juan Arellano - Sebastian Cabarcas
 echo ""
 echo Downloading & installing dependencies...
 echo ---------------------------------------------
-apt-get install python
-apt-get install python-mpi4py
+apt-get install -y python-setuptools
+easy_install pip
+apt-get install -y python
+apt-get install -y python-mpi4py
+pip install mpi4py
 #apt-get install -y build-essential
 #apt-get install -y openssh-server
 #apt-get install -y nfs-kernel-server
@@ -17,7 +20,7 @@ apt-get install python-mpi4py
 #cd mpich-3.2.1
 #./configure --disable-fortran
 #make; sudo make install
-#cd
+cd
 echo ---------------------------------------------
 echo Configuring hosts file...
 echo Please search your ip assigned on the NAT Network or ask to the network manager!
