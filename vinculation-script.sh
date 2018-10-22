@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 cd
 echo ---------------------------------------------
 echo Welcome to the cluster vinculation script!...
@@ -11,11 +11,11 @@ apt-get install -y openssh-server
 apt-get install -y nfs-kernel-server
 apt-get install -y nfs-common
 wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
-#tar -xzf mpich-3.2.1.tar.gz
-#cd mpich-3.2.1
-#./configure --disable-fortran
-#make; sudo make install
-#cd
+tar -xzf mpich-3.2.1.tar.gz
+cd mpich-3.2.1
+./configure --disable-fortran
+make; sudo make install
+cd
 echo ---------------------------------------------
 echo Configuring hosts file...
 echo Please search your ip assigned on the NAT Network or ask to the network manager!
@@ -35,6 +35,7 @@ sudo -i -u mpiuser ssh-keygen -b 4096 -C "" -P "" -f "/home/mpiuser/.ssh/id_rsa"
 sudo -i -u mpiuser ssh-copy-id john-master
 sudo -i -u mpiuser ssh john-master "echo godmode01 | sudo -S -- sh -c 'echo $concat >> /etc/hosts'"
 echo ""
+sudo -i -u mpiuser ssh john-master "echo 'yes \n' | ssh-copy-id $host_name"
 mkdir /home/mpiuser/cloud
 sudo mount -t nfs john-master:/home/mpiuser/cloud /home/mpiuser/cloud
 echo john-master:/home/mpiuser/cloud /home/mpiuser/cloud nfs | tee --append /etc/fstab
