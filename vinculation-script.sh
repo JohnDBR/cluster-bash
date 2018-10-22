@@ -6,8 +6,9 @@ echo John Barbosa - Juan Arellano - Sebastian Cabarcas
 echo ""
 echo Downloading & installing dependencies...
 echo ---------------------------------------------
-apt-get install -y python
-apt-get install -y python-mpi4py
+apt-get install -y python-setuptools
+apt-get install -y python-dev python-pip
+pip install mpi4py
 apt-get install -y build-essential
 apt-get install -y openssh-server
 apt-get install -y nfs-kernel-server
