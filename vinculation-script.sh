@@ -6,7 +6,7 @@ echo John Barbosa - Juan Arellano - Sebastian Cabarcas
 echo ""
 echo Downloading & installing dependencies...
 echo ---------------------------------------------
-apt -y autoremove python 
+apt autoremove -y python 
 apt-get install -y python-setuptools
 apt-get install -y python-dev python-pip
 pip install mpi4py
